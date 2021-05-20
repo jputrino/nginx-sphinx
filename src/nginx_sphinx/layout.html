@@ -1,0 +1,98 @@
+{% extends "basic/layout.html" %}
+
+
+{%- block doctype -%}
+<!DOCTYPE html>
+{%- endblock %}
+<html lang="en">
+
+<head>  
+
+{% include 'includes/head.html' %}
+  
+</head>
+
+<body class="page">
+  <!-- Google Tag Manager (noscript) -->
+  <!--noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5HG9JT"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript-->
+  <!-- End Google Tag Manager (noscript) -->
+
+<header>
+  {% include 'header.html' %}
+</header>
+  
+  {% include 'searchbox.html' %}
+
+  <div class="page">
+  
+  {% block breadcrumb %}
+  {% include 'includes/breadcrumb.html' %}  
+  {% endblock %}
+  
+  
+<main>
+  {% block main %}
+  <!-- call the sidebar blocks to override them -->
+  {# Do not create the standard relbars and sidebars #}
+  {%- block relbar1 %}{% endblock %}
+  {%- block relbar2 %}{% endblock %}
+  {%- block sidebar1 %}{% endblock %}
+  {%- block sidebar2 %}{% endblock %}
+
+  {% include 'includes/sidebar.html' %}
+  
+  
+  <div class="container">
+  
+    <div id="container hero">
+      <h1>{{ title }}</h1>
+    </div>
+    
+    <article>
+      <hr/>
+      {{ toc }}
+  
+
+
+      
+      {{body}}
+
+    </article>
+  
+      
+    {%- if (next or prev) -%}
+    <div class="" role="navigation">
+      {%- if prev %} 
+      <a href="{{ prev.link|e }}" class="button dib f6 pl1 hover-bg-light-gray br-100" title="{{ prev.title|striptags|e }}"><span class="fa fa-arrow-circle-left" accesskey="p" aria-hidden="true"></span> {{ _('Previous') }}</a>
+      {%- endif %} 
+      {%- if next %} 
+      <a href="{{ next.link|e }}" class="button dib f6 pl1 hover-bg-light-gray br-100" title="{{ next.title|striptags|e }}"> {{ _('Next') }} <span class="fa fa-arrow-circle-right" accesskey="n" aria-hidden="true"></span></a>
+      {%- endif %}
+    </div>
+    {%- endif %}
+    
+    <!--div>
+      version-list
+    </div-->
+  
+  </div>  
+  
+  
+  {% endblock %}</main>
+</div>
+
+<footer>
+  {% block footer %}
+  {% include 'footer.html' %}
+  {% endblock %}
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+{% set script_files = script_files + [
+      "/_static/js/redoc.standalone.js",    
+    ]
+  %}
+
+</body>
+</html>

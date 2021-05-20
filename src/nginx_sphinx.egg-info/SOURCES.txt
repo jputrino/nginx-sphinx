@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/nginx_sphinx/__init__.py
+src/nginx_sphinx.egg-info/PKG-INFO
+src/nginx_sphinx.egg-info/SOURCES.txt
+src/nginx_sphinx.egg-info/dependency_links.txt
+src/nginx_sphinx.egg-info/entry_points.txt
+src/nginx_sphinx.egg-info/requires.txt
+src/nginx_sphinx.egg-info/top_level.txt

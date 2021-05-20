@@ -1,0 +1,13 @@
+<nav aria-label="breadcrumb">
+  <div class="breadcrumb nav navbar-nav">
+      <ol class="breadcrumb">
+
+        <li><a href="{{ pathto(master_doc) }}" alt="Home"><i class="fa fa-home"></i></a>
+        
+          {%- for doc in parents %} 
+          <li><a href="{{ doc.link|e }}">{{ doc.title }}</a></li>
+          {% endfor %}
+          <li>{{ title }}</li>
+      </ol>
+  </div>
+</nav>

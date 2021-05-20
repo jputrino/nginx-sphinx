@@ -1,0 +1,17 @@
+.DS_Store
+
+# python artifacts
+.python-version
+exts/__pycache__/
+_themes/__pycache__/
+_themes/docs-theme/__pycache__/
+build/
+
+# hugo resources
+source/_static/css/all.min.css
+source/_static/css/f5-hugo.css
+source/_static/css/kube.css
+source/_static/js/kube.js
+source/_static/js/redoc.standalone.js
+
+workspace.code-workspace

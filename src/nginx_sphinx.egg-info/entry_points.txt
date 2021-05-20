@@ -1,0 +1,3 @@
+[sphinx.html_themes]
+nginx_sphinx = nginx_sphinx
+
