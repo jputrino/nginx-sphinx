@@ -1,66 +1,71 @@
 {% extends "basic/layout.html" %}
-
-
 {%- block doctype -%}
 <!DOCTYPE html>
 {%- endblock %}
 <html lang="en">
 
-<head>  
-
-{% include 'includes/head.html' %}
+{% set script_files = script_files + [
+  "/_static/js/redoc.standalone.js", 
+  "/_static/js/docs-nginx-com/main.js",
+  "/_static/js/docs-nginx-com/nginx-cookie.js",
+  "/_static/js/docs-nginx-com/nginx-gdpr2.js",   
+]
+%}
   
+{%- macro script() %}
+  {%- for js in script_files %}
+  {{ js_tag(js) }}
+  {%- endfor %}
+{%- endmacro %}
+
+<head>  
+{% block extrahead %}
+{% include 'includes/head.html' %}
+{% endblock %}
+{%- block linktags %}{% endblock %}
 </head>
 
-<body class="page">
+{%- block body_tag %}<body class="page">{% endblock %}
   <!-- Google Tag Manager (noscript) -->
   <!--noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5HG9JT"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript-->
   <!-- End Google Tag Manager (noscript) -->
 
-<header>
+{%- block header %}
   {% include 'header.html' %}
-</header>
-  
-  {% include 'searchbox.html' %}
+{% endblock %}
 
-  <div class="page">
-  
-  {% block breadcrumb %}
-  {% include 'includes/breadcrumb.html' %}  
-  {% endblock %}
-  
-  
-<main>
-  {% block main %}
+{% include 'searchbox.html' %}
+
+{%- block content %}
+<div class="page">
   <!-- call the sidebar blocks to override them -->
   {# Do not create the standard relbars and sidebars #}
   {%- block relbar1 %}{% endblock %}
   {%- block relbar2 %}{% endblock %}
   {%- block sidebar1 %}{% endblock %}
   {%- block sidebar2 %}{% endblock %}
+  
+  {% block breadcrumb %}
+  {% include 'includes/breadcrumb.html' %}  
+  {% endblock %}
+  
+  <main>
+    {%- block document %}{% endblock %}<!--document-->
+    
+    {% include 'sidebar.html' %}
 
-  {% include 'includes/sidebar.html' %}
-  
-  
   <div class="container">
-  
-    <div id="container hero">
-      <h1>{{ title }}</h1>
-    </div>
     
     <article>
-      <hr/>
-      {{ toc }}
-  
-
-
-      
-      {{body}}
-
+      <div class="container document">
+        <div class="body" role="main">
+        {% block body %} {% endblock %}
+      </div>
+      </div>
     </article>
-  
-      
+
+  </div>      
     {%- if (next or prev) -%}
     <div class="" role="navigation">
       {%- if prev %} 
@@ -71,16 +76,15 @@
       {%- endif %}
     </div>
     {%- endif %}
-    
+
     <!--div>
       version-list
     </div-->
+
+  </main>
+</div>  
   
-  </div>  
-  
-  
-  {% endblock %}</main>
-</div>
+{% endblock %}<!--content-->
 
 <footer>
   {% block footer %}
@@ -89,10 +93,6 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-{% set script_files = script_files + [
-      "/_static/js/redoc.standalone.js",    
-    ]
-  %}
 
 </body>
 </html>

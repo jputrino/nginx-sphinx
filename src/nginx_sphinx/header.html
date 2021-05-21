@@ -1,8 +1,8 @@
-{% block header %}
+<header>
 <nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img class="navbar-img" src="{{site_url}}/_static/images/NGINX-Logo-White-Endorsement-RGB.svg" alt="">
+      <img class="navbar-img" src="{{site_url}}/_static/images/NGINX-Docs-horiz-white-type.svg" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,28 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Docs
           </a>
-          {% include 'includes/products-menu.html' %}
+          <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+    
+            <a class="dropdown-item" title="NGINX Open Source" href="https://nginx.org/en/docs">NGINX Open Source</a>
+            
+            <a class="dropdown-item" title="NGINX Plus" href="https://docs.nginx.com/nginx/">NGINX Plus</a>
+            
+            <a class="dropdown-item" title="NGINX Controller" href="https://docs.nginx.com/nginx-controller/">NGINX Controller</a>
+            
+            <a class="dropdown-item" title="NGINX Ingress Controller" href="https://docs.nginx.com/nginx-ingress-controller/">NGINX Ingress Controller</a>
+            
+            <a class="dropdown-item" title="NGINX App Protect" href="https://docs.nginx.com/nginx-app-protect/">NGINX App Protect</a>
+            
+            <a class="dropdown-item" title="NGINX App Protect DoS" href="https://docs.nginx.com/nginx-app-protect-dos/">NGINX App Protect DoS</a>
+            
+            <a class="dropdown-item" title="NGINX Service Mesh" href="https://docs.nginx.com/nginx-service-mesh/">NGINX Service Mesh</a>
+            
+            <a class="dropdown-item" title="NGINX Unit" href="https://unit.nginx.org/">NGINX Unit</a>
+            
+            <a class="dropdown-item" title="NGINX Instance Manager" href="https://docs.nginx.com/nginx-instance-manager/">NGINX Instance Manager</a>
+            
+          
+          </div>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="https://www.nginx.com/solutions/">Solutions</a>
@@ -31,4 +52,4 @@
   </div>
   
 </nav>
-{% endblock %}
+</header>
