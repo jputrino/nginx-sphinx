@@ -21,7 +21,7 @@ setuptools.setup(
         ]
     },
   install_requires = [
-  'sphinx>=2.1',
+  'sphinx>=3.5.4',
   ],
 )
 
