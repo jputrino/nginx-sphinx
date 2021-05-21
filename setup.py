@@ -6,7 +6,7 @@ setuptools.setup(
     'theme.conf',
     '*.html',
     'includes/*.html',
-    'static/fonts/*.*',
+    'static/fonts/*/*.*',
     'static/images/*.*',
     'static/images/icons/*.*',
     'static/*.*',
