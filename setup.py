@@ -7,6 +7,7 @@ setuptools.setup(
     '*.html',
     'includes/*.html',
     'static/fonts/*/*.*',
+    'static/fonts/*/*/*.*',
     'static/images/*.*',
     'static/images/icons/*.*',
     'static/*.*',
